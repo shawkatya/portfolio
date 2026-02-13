@@ -1,8 +1,8 @@
 # Site settings
 title: "Kathryn Shaw Artist"
 description: "Contemporary Canadian Artist"
-url: "https://shawkatya.github.io"
-baseurl: "/portfolio"
+url: "https://www.katyshaw.ca"
+baseurl: ""
 
 # Collections
 collections:
