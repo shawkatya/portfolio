@@ -1,0 +1,28 @@
+<!-- Gallery grid for project images -->
+<div class="w3-content w3-container w3-padding-64">
+  
+  {% assign images_array = include.images | split: ',' %}
+  {% assign total_images = images_array.size %}
+  {% assign rows = total_images | divided_by: 4.0 | ceil %}
+  
+  {% for i in (0..rows) %}
+    {% assign start_index = i | times: 4 %}
+    {% assign end_index = start_index | plus: 3 %}
+    
+    <div class="w3-row-padding w3-left-align {% if i > 0 %}w3-section{% endif %}">
+      {% for j in (start_index..end_index) %}
+        {% if j < total_images %}
+          {% assign image = images_array[j] | strip %}
+          <div class="w3-col m3">
+            <img src="{{ site.baseurl }}/assets/images/{{ image }}" 
+                 style="width:100%" 
+                 onclick="onClick(this)" 
+                 class="w3-hover-opacity" 
+                 alt="{{ include.alt_prefix }} {{ j | plus: 1 }}">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+  
+</div>

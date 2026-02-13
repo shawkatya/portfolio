@@ -1,0 +1,32 @@
+# Site settings
+title: "Kathryn Shaw Artist"
+description: "Contemporary Canadian Artist"
+url: "https://shawkatya.github.io"
+baseurl: "/portfolio"
+
+# Collections
+collections:
+  projects:
+    output: false
+    sort_by: year
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Build settings
+markdown: kramdown
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .gitignore

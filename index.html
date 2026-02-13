@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Hero Image -->
+  <div class="w3-display-container">
+    <img src="{{ site.baseurl }}/assets/images/grid.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" id="about">
+    <h2 class="w3-wide">KATHRYN SHAW</h2>
+    <p class="w3-justify">Kathryn Shaw is a contemporary artist and photographer in Ottawa, Canada, exploring themes of nostalgia, loss, human-environment interaction, and memory through a feminist lens. Kathryn's work draws from brutalism, modernism, and retrofuturism, as well as her multicultural upbringing, and inspirations from fantasy and technology. By blending traditional materials with innovative methods, she forges connections across time.</p>
+    <p class="w3-justify">Kathryn holds a Master's degree in Psychology from the University of Guelph. She earned a Diploma of Fine Art in 2024. Her work has been exhibited in Canada, the US, the UK and online.</p>
+  </div>
+
+  <!-- Work Section -->
+  <div class="w3-black" id="work">
+    <div class="w3-container w3-content w3-padding-64">
+      <h2 class="w3-wide w3-center">RECENT WORK</h2>
+      
+      <hr>
+
+      <!-- Project Tabs -->
+      <div class="w3-bar w3-theme">
+        {% assign sorted_projects = site.projects | sort: 'order' %}
+        {% for project in sorted_projects %}
+        <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'{{ project.tab_id }}')">{{ project.title | upcase }}</button>
+        {% endfor %}
+      </div>
+
+      <!-- Project Content -->
+      {% for project in sorted_projects %}
+      <div id="{{ project.tab_id }}" class="w3-container city w3-animate-opacity">
+        <p class="w3-opacity"><i>{{ project.subtitle }} ({{ project.year }})</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% if project.book_url %}<a href="{{ project.book_url }}">buy the book</a>{% endif %}</p>
+        
+        {% assign images_list = project.images | join: ',' %}
+        {% include gallery.html images=images_list alt_prefix=project.title %}
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT and EVENTS</h2>
+    
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i> Ottawa, Canada<br>
+        <i class="fa fa-instagram" style="width:30px"></i> <a href="https://www.instagram.com/katyshawart/">@katyshawart</a> (archived)<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> info@katyshaw.ca<br>
+        <i class="fa fa-id-card-o" style="width:30px"> </i> <a href="{{ site.baseurl }}/assets/cv.pdf">CV</a><br>
+        <i class="fa fa-newspaper-o" style="width:30px"> </i> Newsletter coming in 2026<br>
+      </div>
+      
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-image" style="width:30px"></i> <b>Stories from Our Future</b><br>
+        <i class="fa fa-group" style="width:30px"></i> Ottawa-Gatineau Printmakers Connective<br>
+        <i class="fa fa-calendar" style="width:30px"> </i> 5 Jan - 22 Feb, 2026<br>
+        <i class="fa fa-map-o" style="width:30px"> </i> 245 Centrum Blvd. Orleans<br>
+        <i class="fa fa-glass" style="width:30px"> </i> Vernissage 8 Jan. 5-7pm<br>
+      </div>
+    </div>
+    
+    <div class="w3-row w3-padding-32">
+      I acknowledge the support of the Canada Council for the Arts and the City of Ottawa
+      <p>
+      <div class="parent">
+        <span id="first"><img style="height:25px" src="{{ site.baseurl }}/assets/images/funding_cca.png"></span>
+        <span id="second"><img style="height:25px" src="{{ site.baseurl }}/assets/images/funding_ott.png"></span>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Footer Image -->
+<div class="w3-display-container">
+  <img src="{{ site.baseurl }}/assets/images/loucon1.jpg" style="width:100%">
+  <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+  </div>
+</div>
