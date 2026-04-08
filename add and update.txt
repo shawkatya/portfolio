@@ -1,0 +1,9 @@
+# Create _projects/new-series.md
+git add _projects/new-series.md assets/images/
+git commit -m "Add new series"
+git push
+
+# Edit index.html
+git add index.html
+git commit -m "Update contact info"
+git push
